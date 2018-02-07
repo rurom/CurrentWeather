@@ -48,6 +48,20 @@ class MainVC: UITableViewController {
         
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
+        let source = hardcodedCities[indexPath.row]
+        
+        performSegue(withIdentifier: "SwipingController", sender: source)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SwipingController" {
+            _ = segue.destination as? SwipingController
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier:"Cell") else { return UITableViewCell()}
         

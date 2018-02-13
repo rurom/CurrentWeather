@@ -6,8 +6,14 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="GillSans.ttc">
+            <string>GillSans-Bold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Current Weather-->
         <scene sceneID="KVN-Qt-BkQ">
@@ -48,7 +54,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Current Weather" id="jKl-ay-FvW"/>
                     <connections>
-                        <segue destination="wmb-g7-iWy" kind="show" identifier="SwipingController" id="7ho-C2-RtY"/>
+                        <segue destination="fRW-ah-RQw" kind="show" identifier="SwipingController" id="YBH-JX-H5j"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I58-fo-EPB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -56,38 +62,112 @@
             <point key="canvasLocation" x="7" y="86"/>
         </scene>
         <!--Swiping Controller-->
-        <scene sceneID="cSK-AS-Ddj">
+        <scene sceneID="zUW-Md-882">
             <objects>
-                <collectionViewController id="wmb-g7-iWy" customClass="SwipingController" customModule="CurrentWeather" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="YPm-o0-O6s">
+                <viewController id="fRW-ah-RQw" customClass="SwipingController" customModule="CurrentWeather" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="d9Y-nk-EMg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="c1w-BL-QvR">
-                            <size key="itemSize" width="50" height="50"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="a2e-1V-JI3">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                        <subviews>
+                            <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tcf-Fx-sEx">
+                                <rect key="frame" x="34" y="156" width="307" height="355"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </view>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="wmb-g7-iWy" id="1ur-Lr-TeV"/>
-                            <outlet property="delegate" destination="wmb-g7-iWy" id="ffQ-nB-pR7"/>
-                        </connections>
-                    </collectionView>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CQs-Jv-yz8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                                <subviews>
+                                    <collectionView clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="scaleAspectFill" fixedFrame="YES" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="lLh-e9-SPG">
+                                        <rect key="frame" x="8" y="28" width="281" height="239"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.7776024252" green="1" blue="0.98939013369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <edgeInsets key="layoutMargins" top="8" left="8" bottom="50" right="8"/>
+                                        <viewLayoutGuide key="safeArea" id="fcr-4e-Mj0"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hjN-Xi-cB7">
+                                            <size key="itemSize" width="326" height="333"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" reuseIdentifier="Cell" id="4Eh-PJ-x6w" customClass="PageCell" customModule="CurrentWeather" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="-47" width="326" height="333"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                    <rect key="frame" x="0.0" y="0.0" width="326" height="333"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lVe-oI-UqJ">
+                                                            <rect key="frame" x="0.0" y="247" width="326" height="76"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="4eV-Xa-nsW">
+                                                                    <rect key="frame" x="122.27803738324565" y="27.941588785054819" width="79" height="21"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="39"/>
+                                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <viewLayoutGuide key="safeArea" id="oO5-oc-ie8"/>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" fixedFrame="YES" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wry-wn-kfR">
+                                                            <rect key="frame" x="48.5" y="164.5" width="241.5" height="81.5"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <subviews>
+                                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fBR-tw-FEH">
+                                                                    <rect key="frame" x="90.637850467357566" y="29.072429906550042" width="57.500000000000114" height="26.500000000000114"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                                                    <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="30"/>
+                                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <color key="backgroundColor" red="1" green="0.73334418400000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </view>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sunny" translatesAutoresizingMaskIntoConstraints="NO" id="4Sb-nZ-utN">
+                                                            <rect key="frame" x="0.0" y="23" width="306" height="144"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                </view>
+                                                <connections>
+                                                    <outlet property="cityLbl" destination="4eV-Xa-nsW" id="gTy-eC-b4r"/>
+                                                    <outlet property="cityView" destination="lVe-oI-UqJ" id="tHB-p8-uV7"/>
+                                                    <outlet property="imageView" destination="4Sb-nZ-utN" id="dks-cR-huf"/>
+                                                    <outlet property="tempLbl" destination="fBR-tw-FEH" id="8HC-a1-bCb"/>
+                                                    <outlet property="tempView" destination="Wry-wn-kfR" id="bod-N4-gR8"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kNI-Mc-Iaw">
+                                        <rect key="frame" x="1" y="310" width="307" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <pageControl opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="bQR-zm-HQ3">
+                                                <rect key="frame" x="126" y="6" width="39" height="37"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="pageIndicatorTintColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="currentPageIndicatorTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </pageControl>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="1" colorSpace="deviceRGB"/>
+                                    </view>
+                                </subviews>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.77760242515298605" green="1" blue="0.9893901336580555" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="GQ7-pi-F30"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="lLh-e9-SPG" id="x9q-7G-c2A"/>
+                        <outlet property="containerView" destination="Tcf-Fx-sEx" id="fTN-xa-Yte"/>
+                        <outlet property="pageCtrl" destination="bQR-zm-HQ3" id="Msq-kp-jGp"/>
+                        <outlet property="pageCtrlView" destination="kNI-Mc-Iaw" id="5Df-n6-uO0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="niq-pf-wNl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="726" y="86"/>
+            <point key="canvasLocation" x="861.60000000000002" y="85.907046476761622"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vpu-Ep-tEY">
@@ -112,4 +192,7 @@
             <point key="canvasLocation" x="-772" y="86"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="sunny" width="681" height="267"/>
+    </resources>
 </document>

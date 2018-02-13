@@ -20,16 +20,16 @@ class WeatherDataJson:Decodable {
 
 class List:Decodable {
     
-    let coord:Coord
-    let sys:Sys
-    let weather:[Weather]
+    let coord:Coord?
+    let sys:Sys?
+    let weather:[Weather?]
     let main:Main
     let visibility:Int?
-    let wind:Wind
-    let clouds:Clouds
-    let dt:Int
-    let id:Int
-    let name:String
+    let wind:Wind?
+    let clouds:Clouds?
+    let dt:Int?
+    let id:Int?
+    let name:String?
     
     init(coord:Coord, sys:Sys, weather:[Weather], main:Main, visibility:Int, wind:Wind, clouds:Clouds, dt:Int, id:Int, name:String) {
         
@@ -48,8 +48,8 @@ class List:Decodable {
 }
 
 class Coord:Decodable {
-    let lon:Double
-    let lat:Double
+    let lon:Double?
+    let lat:Double?
     
     init(lon:Double, lat:Double) {
         self.lon = lon
@@ -58,12 +58,12 @@ class Coord:Decodable {
 }
 
 class Sys:Decodable {
-    let type:Int
-    let id:Int
-    let message:Double
-    let country:String
-    let sunrise:Int
-    let sunset:Int
+    let type:Int?
+    let id:Int?
+    let message:Double?
+    let country:String?
+    let sunrise:Int?
+    let sunset:Int?
         
     init(type:Int, id:Int, message:Double, country:String, sunrise:Int, sunset:Int) {
         self.type = type
@@ -76,10 +76,10 @@ class Sys:Decodable {
 }
 
 class Weather:Decodable {
-    let id:Int
-    let main:String
-    let description:String
-    let icon:String
+    let id:Int?
+    let main:String?
+    let description:String?
+    let icon:String?
     
     init(id:Int, main:String, description:String, icon:String) {
         self.id = id
@@ -91,10 +91,10 @@ class Weather:Decodable {
 
 class Main:Decodable {
     let temp:Double
-    let pressure:Double
-    let humidity:Int
-    let temp_min:Double
-    let temp_max:Double
+    let pressure:Double?
+    let humidity:Int?
+    let temp_min:Double?
+    let temp_max:Double?
     
     init(temp:Double, pressure:Double, humidity:Int, temp_min:Double, temp_max:Double) {
         self.temp = temp
@@ -106,7 +106,7 @@ class Main:Decodable {
 }
 
 class Wind:Decodable {
-    let speed:Double
+    let speed:Double?
     let deg:Double?
     
     init(speed:Double, deg:Double) {
@@ -116,7 +116,7 @@ class Wind:Decodable {
 }
 
 class Clouds:Decodable {
-    let all:Int
+    let all:Int?
     
     init(all:Int) {
         self.all = all

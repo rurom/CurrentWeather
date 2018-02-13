@@ -10,8 +10,8 @@ import UIKit
 
 //Struct for hardcoded array
 struct City {
-   let id:String
-   let name:String
+    let id:String
+    let name:String
 }
 
 //API key for OpenWeatherMap
@@ -27,24 +27,24 @@ var iDsArr = [String]()
 var currentRow:Int  = 0
 
 //Hardcoded array of the cities
- let hardcodedCities = [City(id:"3413829", name:"Reykjavik"), City(id:"3143244", name:"Oslo"), City(id:"702550", name:"Lviv"), City(id:"3128760", name:"Barcelona"), City(id:"292223", name:"Dubai"), City(id:"184745", name:"Nairobi"), City(id:"993800", name:"Johannesburg"), City(id:"1642911", name:"Jakarta"), City(id:"1850144", name:"Tokyo"), City(id:"1796236", name:"Shanghai"), City(id:"1273294", name:"Delhi"), City(id:"2147714", name:"Sydney"), City(id:"3936456", name:"Lima"), City(id:"3435910", name:"Buenos Aires"), City(id:"5368361", name:"Los Angeles"), City(id:"5128581", name:"New York"), City(id:"6167865", name:"Toronto"), City(id:"5879400", name:"Anchorage"), ]
+let hardcodedCities = [City(id:"3413829", name:"Reykjavik"), City(id:"3143244", name:"Oslo"), City(id:"702550", name:"Lviv"), City(id:"3128760", name:"Barcelona"), City(id:"292223", name:"Dubai"), City(id:"184745", name:"Nairobi"), City(id:"993800", name:"Johannesburg"), City(id:"1642911", name:"Jakarta"), City(id:"1850144", name:"Tokyo"), City(id:"1796236", name:"Shanghai"), City(id:"1273294", name:"Delhi"), City(id:"2147714", name:"Sydney"), City(id:"3936456", name:"Lima"), City(id:"3435910", name:"Buenos Aires"), City(id:"5368361", name:"Los Angeles"), City(id:"5128581", name:"New York"), City(id:"6167865", name:"Toronto"), City(id:"5879400", name:"Anchorage"), ]
 
 
 
 class MainVC: UITableViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //function for getting cities id's
         getIDsArr()
         
-        //parsing json data for all cities at once, and storing them into weatherList array for further usage
-        parseWeatherJson()
+        //checking internet reachability, if online -> parsing json data for all cities at once, and storing them into weatherList array for further usage
+        internetReachability()
         
     }
-        
-
+    
+    
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -53,6 +53,9 @@ class MainVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        //checking internet reachability everytime when press on the row
+        internetReachability()
         
         let source = hardcodedCities[indexPath.row]
         
@@ -81,8 +84,5 @@ class MainVC: UITableViewController {
         return 50
     }
     
-
+    
 }//class
-
-
-

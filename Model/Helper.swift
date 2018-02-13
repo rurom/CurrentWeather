@@ -66,7 +66,49 @@ extension UIViewController {
             
             }.resume()//URLSession
         
-        
     }//func
+    
+    //Checking internet rechability
+    @objc func internetReachability () {
+        
+        let reachability =  InternetReachability()!
+        //reachability.isReachable is deprecated, right solution --> connection != .none
+        if reachability.connection != .none {
+            //reachability.isReachableViaWiFi is deprecated, right solution --> connection == .wifi
+            if reachability.connection == .wifi {
+                DispatchQueue.main.async {
+                    print("Internet via WIFI is OK!")
+                    //parse json
+                    self.parseWeatherJson()
+                }
+                
+            } else {
+                DispatchQueue.main.async {
+                    print("Internet via Cellular is OK!")
+                    //parse json
+                    self.parseWeatherJson()
+                }
+            }
+        } else {
+            print("Please check your Internet connection!")
+            inetAlert()
+        }
+    }
+    
+    //Alert when internet is offline
+    func inetAlert() {
+        //Alert Pop-up no internet connection
+        let alertController = UIAlertController(title: "", message: "Please, check your internet connection", preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(defaultAction)
+        self.view?.window?.rootViewController?.present(alertController, animated: true, completion: nil)
+        
+    }
+    
+    
+    //Autoupdate data every 2 min, if user stays at SwipingController
+    func autoUpdate() {
+        Timer.scheduledTimer(timeInterval: TimeInterval(120), target: self, selector: #selector(internetReachability), userInfo: nil, repeats: true)
+    }
 
 }//extension

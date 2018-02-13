@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		93404AB12032CB0C00FE3F35 /* InternetReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93404AB02032CB0C00FE3F35 /* InternetReachability.swift */; };
 		934E83C72031CD680086FA41 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934E83C62031CD680086FA41 /* Helper.swift */; };
 		9356D122202B83420049B4FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9356D121202B83420049B4FF /* AppDelegate.swift */; };
 		9356D124202B83420049B4FF /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9356D123202B83420049B4FF /* MainVC.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		93404AB02032CB0C00FE3F35 /* InternetReachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternetReachability.swift; sourceTree = "<group>"; };
 		934E83C62031CD680086FA41 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		9356D11E202B83420049B4FF /* CurrentWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrentWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9356D121202B83420049B4FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				9356D13D202BB0F00049B4FF /* WeatherDataModel.swift */,
 				9356D148202BD5390049B4FF /* PageCell.swift */,
 				9356D152202D16520049B4FF /* Constraints.swift */,
+				93404AB02032CB0C00FE3F35 /* InternetReachability.swift */,
 				934E83C62031CD680086FA41 /* Helper.swift */,
 			);
 			path = Model;
@@ -178,6 +181,7 @@
 				934E83C72031CD680086FA41 /* Helper.swift in Sources */,
 				9356D122202B83420049B4FF /* AppDelegate.swift in Sources */,
 				9356D144202BC6DC0049B4FF /* SwipingController.swift in Sources */,
+				93404AB12032CB0C00FE3F35 /* InternetReachability.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

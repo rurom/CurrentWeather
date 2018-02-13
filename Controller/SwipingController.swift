@@ -43,6 +43,8 @@ class SwipingController: UIViewController, UICollectionViewDelegate, UICollectio
             //setup Auto Layout for views
             setupLayout()
             
+            //function fo autorefreshing data, by default every  min
+            autoUpdate()
         }
     }//viewDidLoad
 
